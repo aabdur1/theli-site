@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Theli</title>
+  <meta name="description" content="Theli's privacy policy. No account, no ads, no analytics. Your food log stays on your device. The only data that leaves your phone is a barcode number, sent to look up a product." />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&family=Noto+Serif+Tamil:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="mark">Theli</span>
+        <span class="tam">தெளி</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="index.html" class="pill">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="doc">
+    <div class="wrap">
+      <div class="lead-block">
+        <span class="eyebrow">Legal</span>
+        <h1>Privacy Policy</h1>
+        <p class="stamp">Last updated 4 June 2026 · Applies to the Theli iOS app and theli.app</p>
+      </div>
+
+      <div class="tldr">
+        <h3>The short version</h3>
+        <p>Theli has no account and no servers of its own. Your food log, settings, and any label photos stay on your iPhone. We don't run ads, analytics, or trackers, and we don't collect or sell your data. The only information that ever leaves your device is the <strong>barcode number</strong> you scan, sent to Open Food Facts (and, as a fallback, USDA FoodData Central) for the sole purpose of looking up that product.</p>
+      </div>
+
+      <article>
+        <h2><span class="idx">01</span>Who this covers</h2>
+        <p>This policy is for <strong>Theli</strong>, a nutrition-label scanner for iPhone, and this website at theli.app. Theli is an independent project. Throughout this document, "we," "us," and "Theli" refer to the developer of the app; "you" means the person using it.</p>
+
+        <h2><span class="idx">02</span>What we collect: essentially nothing</h2>
+        <p>Theli does not require an account. You do not give us your name, email, age, or any profile information to use the app. We do not have a server that stores your data, so there is no Theli database with your information in it.</p>
+        <ul>
+          <li><strong>No analytics or tracking.</strong> Theli includes no third-party analytics, advertising, crash-reporting, or attribution software. Nothing in the app records how you use it, and there is no advertising identifier collection and no cross-app or cross-site tracking.</li>
+          <li><strong>No data sale.</strong> We never sell, rent, or share your personal information, because we don't collect it in the first place.</li>
+        </ul>
+
+        <h2><span class="idx">03</span>Your food log stays on your device</h2>
+        <p>Everything you log — foods, servings, meals, daily totals, and your nutrition targets — is stored <strong>locally on your iPhone</strong> using Apple's on-device storage (SwiftData). This data is not uploaded to us, not synced to a cloud service by Theli, and not backed up to any server we control.</p>
+        <p>Your on-device data may be included in your own encrypted iPhone backups (iCloud or Finder/iTunes) if you have those turned on — that is Apple's backup of your device, governed by <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>, and is not something Theli can access. Deleting the app removes its on-device data.</p>
+
+        <h2><span class="idx">04</span>Label photos are read on-device, then discarded</h2>
+        <p>When you photograph a Nutrition Facts label, the image is handed directly to Apple's <strong>Vision</strong> framework <em>on your device</em> to recognize the text. The photo is <strong>not saved to your photo library, not stored by the app, and never uploaded anywhere.</strong> Once the text has been read, the image is discarded from memory. No copy of the image or its contents is transmitted off the device, and no logging or reporting captures it.</p>
+
+        <h2><span class="idx">05</span>The one thing that leaves your phone: a barcode</h2>
+        <p>When you scan a product barcode, Theli sends that <strong>barcode number</strong> to look up the product's nutrition information:</p>
+        <ul>
+          <li><strong>Open Food Facts</strong> — a free, open food products database. The barcode is sent to its public API to retrieve nutrition facts. See the <a href="https://world.openfoodfacts.org/privacy" target="_blank" rel="noopener">Open Food Facts privacy policy</a>.</li>
+          <li><strong>USDA FoodData Central</strong> — if a US product isn't found in Open Food Facts, the barcode is used to query the USDA's public database as a fallback. USDA FoodData Central is a U.S. government service.</li>
+        </ul>
+        <p>These lookups send the <strong>barcode and the standard technical information any internet request includes</strong> (such as your device's IP address and the app's identifying "user agent" string, which contains the app name, version, and a contact email). They do <strong>not</strong> send your food log, your identity, your other foods, or any label photo. We do not control how these third parties handle requests; their own policies apply. We use them strictly as per-product lookups and never copy their data into a separate dataset.</p>
+
+        <h2><span class="idx">06</span>Apple Health (optional, write-only)</h2>
+        <p>Theli does not use Apple Health unless you explicitly turn it on. If a version of the app offers Health sync and you enable it, Theli requests permission only to <strong>write</strong> the nutrition entries you have logged into Apple Health. Theli <strong>never reads</strong> any data from Apple Health. Health data is governed by Apple and stays on your device under your control; you can revoke this permission at any time in the iOS Health or Settings app.</p>
+
+        <h2><span class="idx">07</span>Camera</h2>
+        <p>Theli asks for camera access so you can scan barcodes and photograph labels. The camera is used only while you are actively scanning. Theli does not record video, and — as described above — label photos are processed on-device and discarded rather than saved or uploaded.</p>
+
+        <h2><span class="idx">08</span>Payments &amp; optional support</h2>
+        <p>Theli's features are free. If the app offers an optional tip to support development, that purchase is handled entirely by <strong>Apple's App Store</strong> using your Apple ID. Theli never sees or stores your payment details; Apple processes the transaction under <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
+
+        <h2><span class="idx">09</span>Children</h2>
+        <p>Theli is a general-audience utility and is not directed at children under 13. Because the app collects no personal information and requires no account, it does not knowingly gather data from anyone, including children.</p>
+
+        <h2><span class="idx">10</span>Your rights</h2>
+        <p>Because your data lives on your own device and we hold nothing about you, you are already in full control: you can view, edit, or delete any logged entry in the app, and deleting the app removes its data from your device. There is no account for us to close and no server-side data for us to export or erase, because none exists.</p>
+
+        <h2><span class="idx">11</span>A note on accuracy</h2>
+        <p>Nutrition information shown in Theli comes from crowdsourced and public databases and from on-device reading of labels, and may be incomplete or wrong. Always verify against the product's actual label. Theli is an informational tool and is <strong>not medical or dietary advice</strong>.</p>
+
+        <h2><span class="idx">12</span>Changes to this policy</h2>
+        <p>If this policy changes, we'll update the date at the top and post the revised version here. Material changes will be reflected before they take effect in a new version of the app.</p>
+
+        <h2><span class="idx">13</span>Contact</h2>
+        <p>Questions about privacy? Reach the developer at <a href="mailto:hello@theli.app">hello@theli.app</a>.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="colophon" style="margin-top:0;border-top:0">
+        <span>Product data © Open Food Facts contributors, licensed under <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener">ODbL</a>. US fallback data from USDA FoodData Central (public domain).</span>
+        <span>© 2026 Theli · <a href="index.html">Home</a></span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

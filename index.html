@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theli — Nutrition, made clear. Privately.</title>
+  <meta name="description" content="Theli is a privacy-first iOS nutrition scanner. Scan a barcode or photograph a label — read it instantly, on your device. No account, no ads, no tracking. Your food log never leaves your phone." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Theli — Nutrition, made clear. Privately." />
+  <meta property="og:description" content="Scan a barcode or photograph a label. No account, no ads, no tracking. Your food log stays on your phone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theli.app" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600&family=Noto+Serif+Tamil:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        <span class="mark">Theli</span>
+        <span class="tam">தெளி</span>
+      </a>
+      <nav class="nav">
+        <a href="#how">How it works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="privacy.html" class="pill">Privacy Policy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="tamil-glyph reveal">தெளி</div>
+        <p class="eyebrow reveal" style="margin-top:18px">Privacy-first nutrition scanner · iPhone</p>
+        <h1 class="reveal">Nutrition, made <em>clear.</em> And kept to yourself.</h1>
+        <p class="lede reveal">Scan a barcode or photograph a label. Theli reads it in a beat — calories, macros, the whole panel — and logs it. No account. No ads. No tracking. Your food diary never leaves your phone.</p>
+        <p class="pron reveal"><b>theli</b> &nbsp;·&nbsp; THEH-lee &nbsp;·&nbsp; Tamil (தெளி) for <em>clarity</em></p>
+        <div class="cta-row reveal">
+          <a class="btn" href="#how">See how it works <span aria-hidden="true">↓</span></a>
+          <a class="btn ghost" href="privacy.html">Read the privacy promise</a>
+        </div>
+        <p class="cta-note reveal" style="margin-top:18px">Coming soon to the App Store · iPhone only</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- HOW IT WORKS -->
+    <section id="how">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">The loop</span>
+          <h2>Scan. Confirm. Log. That's the whole app.</h2>
+          <p>Two ways in, one calm review screen, and it's in your day. No menus to wrangle, no profile to build first.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <span class="num">01 / Barcode</span>
+            <h3>Point at the barcode</h3>
+            <p>Theli looks it up in Open Food Facts, with a USDA fallback for US products that aren't there yet. Facts appear, scaled to your serving.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">02 / Label</span>
+            <h3>Or photograph the label</h3>
+            <p>No barcode? Fresh, local, or imported food? Snap the Nutrition Facts panel. Apple's on-device Vision reads it — the photo never leaves your phone and is discarded after parsing.</p>
+          </div>
+          <div class="step reveal">
+            <span class="num">03 / Log</span>
+            <h3>Check it, then log it</h3>
+            <p>One review screen. Adjust the serving and every number recomputes instantly. Tap to log. It lands in today's diary, grouped by meal, totaled against your targets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY BAND -->
+    <section id="privacy">
+      <div class="wrap">
+        <div class="band reveal">
+          <span class="eyebrow">Why Theli is different</span>
+          <h2>Most nutrition apps are data businesses. Theli isn't.</h2>
+          <div class="grid">
+            <div class="promise">
+              <span class="tick">✓</span>
+              <div><b>No account, ever</b><span>Open the app and start. No sign-up, no email, no profile to hand over before you can scan.</span></div>
+            </div>
+            <div class="promise">
+              <span class="tick">✓</span>
+              <div><b>No ads, no analytics, no trackers</b><span>Zero third-party SDKs. Nothing watches how you use the app or what you eat.</span></div>
+            </div>
+            <div class="promise">
+              <span class="tick">✓</span>
+              <div><b>Labels read on-device</b><span>Photos are processed by Apple's Vision framework on your phone and discarded. No image is ever uploaded or stored.</span></div>
+            </div>
+            <div class="promise">
+              <span class="tick">✓</span>
+              <div><b>Your log stays local</b><span>Your food diary lives in on-device storage only. There's no Theli server, no cloud sync, no backup we can read.</span></div>
+            </div>
+            <div class="promise">
+              <span class="tick">✓</span>
+              <div><b>The only thing that leaves is a barcode number</b><span>Scanned barcodes go to Open Food Facts / USDA purely to look up a product. Nothing personal rides along.</span></div>
+            </div>
+            <div class="promise">
+              <span class="tick">✓</span>
+              <div><b>Apple Health is opt-in &amp; write-only</b><span>If you ever turn on Health sync, Theli only writes entries you logged. It never reads your health data.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="support">
+      <div class="wrap">
+        <div class="inner reveal">
+          <span class="eyebrow">Pricing</span>
+          <h2>Free. The whole thing.</h2>
+          <div class="price-tag">no paywall</div>
+          <p>Every feature is open — scanning, label OCR, your daily log, targets, history. Theli is built as a labour of care, not a funnel. If it earns a place on your home screen and you'd like to chip in toward the Apple Developer fee and keep it growing, there's a small, entirely optional tip jar. That's the only thing money touches.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <div class="mark">Theli&nbsp;<span style="font-family:var(--tamil);font-size:18px;color:var(--ink-faint)">தெளி</span></div>
+          <p>A privacy-first nutrition scanner for iPhone. Made with care.</p>
+        </div>
+        <div class="foot-links">
+          <div class="foot-col">
+            <h4>App</h4>
+            <a href="#how">How it works</a>
+            <a href="#privacy">Privacy</a>
+            <span>App Store — soon</span>
+          </div>
+          <div class="foot-col">
+            <h4>Legal</h4>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="mailto:hello@theli.app">Contact</a>
+          </div>
+          <div class="foot-col">
+            <h4>Data</h4>
+            <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a>
+            <a href="https://fdc.nal.usda.gov" target="_blank" rel="noopener">USDA FoodData Central</a>
+          </div>
+        </div>
+      </div>
+      <div class="colophon">
+        <span>Product data © Open Food Facts contributors, licensed under <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener">ODbL</a>. US fallback data from USDA FoodData Central (public domain).</span>
+        <span>© 2026 Theli · <a href="mailto:hello@theli.app">hello@theli.app</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
