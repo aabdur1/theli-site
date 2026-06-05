@@ -271,14 +271,7 @@ section { padding: clamp(56px, 9vw, 104px) 0; }
 .feature-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
 
 .tip-row { display: flex; align-items: flex-start; gap: 12px; padding-top: 24px; border-top: 1px solid var(--line-soft); }
-.tip-row-left { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.tip-icon  { font-size: 18px; color: var(--turmeric); line-height: 1; }
-.tip-label {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--turmeric); padding: 3px 10px;
-  background: rgba(200,133,46,0.10); border: 1px solid rgba(200,133,46,0.20);
-  border-radius: 999px; white-space: nowrap;
-}
+.tip-icon  { font-size: 18px; color: var(--turmeric); line-height: 1; flex-shrink: 0; }
 .tip-text { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
 .tip-text strong { color: var(--ink); font-weight: 600; }
 
