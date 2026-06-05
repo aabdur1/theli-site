@@ -1,15 +1,25 @@
 # theli.app — marketing site + privacy policy
 
-Static site for **Theli**, a privacy-first iOS nutrition scanner. No build step, no
-dependencies, no trackers — plain HTML/CSS + one small progressive-enhancement script.
+Static site for **Theli**, a privacy-first iOS nutrition scanner. No build step, no npm,
+no third-party deps, no trackers — plain HTML/CSS + two small progressive-enhancement
+scripts. Self-hosted fonts (Phosphor icons) + Google Fonts (Eczar / Hanken Grotesk / Noto
+Serif Tamil). Light (Warm Stone Pink) and dark (Forest) themes with a toggle.
 
 ```
-index.html     landing page
-privacy.html   privacy policy (served at /privacy and /privacy.html)
-styles.css     shared styles
-app.js         scroll-reveal (external so CSP stays script-src 'self')
-netlify.toml   publish dir + security headers + www→apex redirect
+index.html              landing page
+privacy.html            privacy policy (served at /privacy and /privacy.html)
+styles.css              shared styles + light/dark themes (:root[data-theme])
+app.js                  staggered scroll reveals + hero-watermark parallax
+theme.js                dark/light theme: pre-paint set + toggle + localStorage
+favicon.svg             kolam app-mark (+ apple-touch-icon.png)
+og-image.png            1200×630 social card (referenced by OG/Twitter meta)
+apple-touch-icon.png    180×180 home-screen icon
+vendor/                 self-hosted Phosphor Icons (CSS + web fonts)
+netlify.toml            publish dir + security headers + caching + www→apex redirect
 ```
+
+Both scripts are external so the CSP stays `script-src 'self'` (no inline JS). All motion
+is gated behind `prefers-reduced-motion`.
 
 Local preview: open `index.html` directly, or `python3 -m http.server` in this dir.
 
@@ -56,6 +66,32 @@ app's Open Food Facts `User-Agent`. (AWS SES is not required; only consider it i
 want to *send* mail as @theli.app, which would mean moving MX to SES.)
 
 ---
+
+## Design
+
+Brand system (shared with the app, source of truth in the app repo's `STYLE_GUIDE.md` +
+`design/tokens.json`):
+
+- **Themes:** light = Warm Stone Pink `#E6D2C9`, dark = Forest `#0F1C14`. Tokens live in
+  `:root` / `:root[data-theme="dark"]`; the toggle defaults to OS preference, persists in
+  `localStorage`, and sets the theme before paint (no flash).
+- **Type:** Eczar (display serif) + Hanken Grotesk (body) + Noto Serif Tamil (wordmark).
+- **Signature touches:** hero "clear." is a hollow outline (`-webkit-text-stroke` +
+  `paint-order`) that blurs into focus on load; subtle kolam (sikku) section dividers
+  (hairline + three turmeric pulli); staggered reveals, gentle hovers, theme cross-fade,
+  watermark parallax.
+- Per-change design rationale: `docs/superpowers/specs/`. App handoff: `DESIGN_HANDOFF.md`.
+
+> The marketing-specific flourishes (outlined "clear.", blur-to-clarity, split headline,
+> kolam dividers, web animations) are **site-only** — the iOS app uses the same *tokens +
+> type + dark theme* but its own native components and SwiftUI motion. See `DESIGN_HANDOFF.md`.
+
+## Caching
+
+`styles.css` and `app.js` keep stable filenames (no build-step hashing), so `netlify.toml`
+serves them `Cache-Control: public, max-age=0, must-revalidate` — the browser revalidates
+via ETag (cheap 304s) and always picks up edits on deploy. **Do not** set `immutable` on
+these stable-named assets; it strands returning visitors on a stale stylesheet.
 
 ## Keep in sync
 
