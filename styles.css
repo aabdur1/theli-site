@@ -201,7 +201,7 @@ section { padding: clamp(56px, 9vw, 104px) 0; }
 /* ---- Privacy feature band ---- */
 .band {
   background: var(--green-deep);
-  color: #EDE9DC;
+  color: rgba(221,213,218,0.85);
   border-radius: 28px;
   padding: clamp(40px, 7vw, 80px);
   position: relative; overflow: hidden;
@@ -212,17 +212,17 @@ section { padding: clamp(56px, 9vw, 104px) 0; }
   font-family: var(--tamil); font-size: clamp(180px, 34vw, 420px);
   color: rgba(255,255,255,0.045); pointer-events: none; line-height: 1;
 }
-.band .eyebrow { color: #9FD4BC; }
-.band h2 { color: #FBF8F0; font-size: clamp(30px, 5vw, 52px); margin-top: 14px; max-width: 18ch; }
+.band .eyebrow { color: rgba(221,213,218,0.55); }
+.band h2 { color: #DDD5DA; font-size: clamp(30px, 5vw, 52px); margin-top: 14px; max-width: 18ch; }
 .band .grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 14px 48px; margin-top: 48px; position: relative; z-index: 2;
 }
 @media (max-width: 720px) { .band .grid { grid-template-columns: 1fr; } }
 .promise { display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.14); }
-.promise .tick { color: #79C9A4; font-size: 20px; flex: none; line-height: 1.4; }
-.promise b { font-family: var(--serif); font-weight: 500; font-size: 19px; color: #FBF8F0; }
-.promise span { display: block; color: rgba(237,233,220,0.72); font-size: 15.5px; margin-top: 4px; }
+.promise-icon { font-size: 18px; color: rgba(221,213,218,0.70); flex-shrink: 0; line-height: 1.3; }
+.promise b { font-family: var(--serif); font-weight: 500; font-size: 19px; color: #DDD5DA; }
+.promise span { display: block; color: rgba(221,213,218,0.72); font-size: 15.5px; margin-top: 4px; }
 
 /* ---- Support / tip jar ---- */
 .support { text-align: center; }
