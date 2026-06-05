@@ -3,20 +3,20 @@
    turmeric micro-accent. Clarity (தெளி) as the through-line. */
 
 :root {
-  --paper:      #F6F2E9;
-  --paper-2:    #EFE8D9;
-  --paper-3:    #E7DECB;
-  --ink:        #1B1A16;
-  --ink-soft:   #4F4A3E;
-  --ink-faint:  #837C6B;
+  --paper:      #DDD5DA;
+  --paper-2:    #D2C8CE;
+  --paper-3:    #C6BBC2;
+  --ink:        #1A1820;
+  --ink-soft:   #4E4854;
+  --ink-faint:  #867880;
   --green:      #2E5D4B;
   --green-deep: #234A3B;
   --green-lite: #3E7D63;
   --turmeric:   #C8852E;
-  --line:       rgba(27, 26, 22, 0.12);
-  --line-soft:  rgba(27, 26, 22, 0.07);
+  --line:       rgba(26,24,32,0.13);
+  --line-soft:  rgba(26,24,32,0.07);
 
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --serif: "Eczar", Georgia, serif;
   --sans:  "Hanken Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
   --tamil: "Noto Serif Tamil", serif;
 
@@ -37,8 +37,8 @@ body {
   letter-spacing: -0.005em;
   /* layered atmosphere: warm radial glows + faint grain */
   background-image:
-    radial-gradient(120% 80% at 12% -8%, rgba(62, 125, 99, 0.10), transparent 55%),
-    radial-gradient(90% 70% at 100% 0%, rgba(200, 133, 46, 0.08), transparent 50%);
+    radial-gradient(120% 80% at 12% -8%, rgba(62,125,99,0.09), transparent 55%),
+    radial-gradient(90% 70% at 100% 0%,  rgba(120,80,130,0.06), transparent 50%);
   background-attachment: fixed;
 }
 
@@ -56,7 +56,7 @@ body::before {
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; position: relative; z-index: 2; }
 
 /* ---- Typography ---- */
-h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.05; letter-spacing: -0.02em; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.05; letter-spacing: -0.02em; }
 a { color: inherit; text-decoration: none; }
 
 .eyebrow {
@@ -72,7 +72,7 @@ a { color: inherit; text-decoration: none; }
 .site-header {
   position: sticky; top: 0; z-index: 50;
   backdrop-filter: blur(12px) saturate(1.2);
-  background: rgba(246, 242, 233, 0.72);
+  background: rgba(221,213,218,0.72);
   border-bottom: 1px solid var(--line-soft);
 }
 .site-header .wrap {
