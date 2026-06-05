@@ -224,14 +224,74 @@ section { padding: clamp(56px, 9vw, 104px) 0; }
 .promise b { font-family: var(--serif); font-weight: 500; font-size: 19px; color: #DDD5DA; }
 .promise span { display: block; color: rgba(221,213,218,0.72); font-size: 15.5px; margin-top: 4px; }
 
-/* ---- Support / tip jar ---- */
-.support { text-align: center; }
-.support .inner { max-width: 56ch; margin: 0 auto; }
-.support h2 { font-size: clamp(30px, 5vw, 52px); }
-.support p { color: var(--ink-soft); margin-top: 20px; }
+/* ---- Pricing / support ---- */
+.support-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: end;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 40px;
+}
+.support-top h2 { font-size: clamp(30px, 5vw, 42px); margin-top: 14px; }
+.support-top p  { color: var(--ink-soft); margin-top: 16px; font-size: 16px; line-height: 1.65; max-width: 46ch; }
+
 .price-tag {
-  display: inline-block; font-family: var(--serif); font-style: italic;
-  color: var(--green); font-size: clamp(40px, 7vw, 64px); margin: 8px 0 6px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(48px, 7vw, 72px);
+  font-weight: 500;
+  color: var(--green);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: 32px;
+}
+.feature-item {
+  padding: 20px 28px 20px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.feature-item:nth-child(3n+2) {
+  padding-left: 28px;
+  border-left: 1px solid var(--line-soft);
+  border-right: 1px solid var(--line-soft);
+}
+.feature-item:nth-child(3n) { padding-left: 28px; padding-right: 0; }
+
+.feature-icon { font-size: 22px; color: var(--green); display: block; margin-bottom: 10px; line-height: 1; }
+.feature-name { font-family: var(--serif); font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.2; }
+.feature-desc { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+
+.tip-row { display: flex; align-items: flex-start; gap: 12px; padding-top: 24px; border-top: 1px solid var(--line-soft); }
+.tip-row-left { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.tip-icon  { font-size: 18px; color: var(--turmeric); line-height: 1; }
+.tip-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--turmeric); padding: 3px 10px;
+  background: rgba(200,133,46,0.10); border: 1px solid rgba(200,133,46,0.20);
+  border-radius: 999px; white-space: nowrap;
+}
+.tip-text { font-size: 13.5px; color: var(--ink-soft); line-height: 1.55; }
+.tip-text strong { color: var(--ink); font-weight: 600; }
+
+@media (max-width: 720px) {
+  .support-top { grid-template-columns: 1fr; gap: 16px; }
+  .price-tag { font-size: clamp(40px, 10vw, 56px); }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .feature-item { padding: 16px 16px 16px 0; }
+  .feature-item:nth-child(2n)   { padding-left: 16px; padding-right: 0; border-left: 1px solid var(--line-soft); border-right: none; }
+  /* 2n+1 must also clear border-left: item 3 is both 3n+2 (gets border-left in 3-col) and 2n+1 (left column in 2-col, no border) */
+  .feature-item:nth-child(2n+1) { padding-left: 0; padding-right: 16px; border-left: none; border-right: none; }
+  /* belt-and-suspenders reset of the 3-col border-right */
+  .feature-item:nth-child(3n+2) { border-right: none; }
 }
 
 /* ---- Footer ---- */
