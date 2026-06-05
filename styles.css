@@ -212,7 +212,7 @@ section { padding: clamp(56px, 9vw, 104px) 0; }
   font-family: var(--tamil); font-size: clamp(180px, 34vw, 420px);
   color: rgba(255,255,255,0.045); pointer-events: none; line-height: 1;
 }
-.band .eyebrow { color: rgba(221,213,218,0.55); }
+.band .eyebrow { color: rgba(221,213,218,0.78); }
 .band h2 { color: #DDD5DA; font-size: clamp(30px, 5vw, 52px); margin-top: 14px; max-width: 18ch; }
 .band .grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
