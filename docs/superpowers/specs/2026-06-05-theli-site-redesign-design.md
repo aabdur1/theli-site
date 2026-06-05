@@ -269,8 +269,7 @@ No layout changes to the band.
 }
 .feature-item:nth-child(3n) { padding-left: 28px; padding-right: 0; }
 
-.feature-icon { width: 26px; height: 26px; display: block; margin-bottom: 10px; }
-.feature-icon img { width: 26px !important; height: 26px !important; } /* Twemoji override */
+.feature-icon { font-size: 22px; color: var(--green); display: block; margin-bottom: 10px; line-height: 1; }
 
 .feature-name {
   font-family: var(--serif);
@@ -338,32 +337,32 @@ No layout changes to the band.
 
     <div class="features-grid">
       <div class="feature-item">
-        <span class="feature-icon">🏷️</span>
+        <i class="ph ph-barcode feature-icon" aria-hidden="true"></i>
         <div class="feature-name">Barcode scanning</div>
         <div class="feature-desc">Open Food Facts + USDA fallback for US products</div>
       </div>
       <div class="feature-item">
-        <span class="feature-icon">📷</span>
+        <i class="ph ph-camera feature-icon" aria-hidden="true"></i>
         <div class="feature-name">Label OCR</div>
         <div class="feature-desc">On-device Vision — the photo never leaves your phone</div>
       </div>
       <div class="feature-item">
-        <span class="feature-icon">📋</span>
+        <i class="ph ph-clipboard-text feature-icon" aria-hidden="true"></i>
         <div class="feature-name">Daily log</div>
         <div class="feature-desc">Meals, totals, and macro targets</div>
       </div>
       <div class="feature-item">
-        <span class="feature-icon">📈</span>
+        <i class="ph ph-chart-line-up feature-icon" aria-hidden="true"></i>
         <div class="feature-name">History &amp; trends</div>
         <div class="feature-desc">Macro summaries and averages over time</div>
       </div>
       <div class="feature-item">
-        <span class="feature-icon">✏️</span>
+        <i class="ph ph-pencil-simple feature-icon" aria-hidden="true"></i>
         <div class="feature-name">Manual entry</div>
         <div class="feature-desc">Log foods with no barcode or label</div>
       </div>
       <div class="feature-item">
-        <span class="feature-icon">❤️</span>
+        <i class="ph ph-heart feature-icon" aria-hidden="true"></i>
         <div class="feature-name">Apple Health sync</div>
         <div class="feature-desc">Opt-in, write-only, no data read back</div>
       </div>
@@ -371,7 +370,7 @@ No layout changes to the band.
 
     <div class="tip-row">
       <div class="tip-row-left">
-        <span class="tip-icon">🫙</span>
+        <i class="ph ph-jar tip-icon" aria-hidden="true"></i>
         <span class="tip-label">Optional</span>
       </div>
       <span class="tip-text"><strong>Tip jar</strong> — if Theli earns a place on your home screen and you'd like to chip in toward the Apple Developer fee, there's a small consumable IAP. It unlocks nothing. Entirely voluntary.</span>
@@ -382,78 +381,83 @@ No layout changes to the band.
 
 ---
 
-## 7. Icons — Twemoji
+## 7. Icons — Phosphor Icons (regular weight)
 
-**Why Twemoji:** Raw emoji characters render via OS-level fonts (Apple Color Emoji on macOS/iOS, Noto Color Emoji on Android, Segoe UI Emoji on Windows). The jar 🫙, camera 📷, and heart ❤️ look different enough across platforms to be worth standardising. Twemoji replaces them with Twitter's open-source SVG artwork, served consistently regardless of OS.
+**Why Phosphor over emoji:** Raw emoji render via OS-level fonts and look meaningfully different across macOS/iOS, Android, and Windows. Phosphor is an MIT-licensed icon font with consistent rendering everywhere — and its barcode, jar, and camera icons are clearly more legible than any emoji equivalent.
 
-### Implementation
+**Why Phosphor over Lucide:** Phosphor has a native `ph-barcode` icon (actual vertical scanlines) and `ph-jar` — both relevant to Theli. Lucide's barcode renders as a QR-like grid and lacks a jar icon.
 
-**Self-host in production** (do not rely on unpkg):
+### Self-hosting
 
-1. Download `twemoji.min.js` from the `twemoji@14.0.2` npm package and commit to `vendor/twemoji.min.js`.
-2. The SVGs are fetched at runtime by Twemoji from `https://twemoji.maxcdn.com/v/14.0.2/svg/` — this CDN is stable and fine for a low-traffic marketing site. If offline resilience is needed, mirror the specific SVGs used locally.
-
-```html
-<!-- Before </body> in index.html -->
-<script src="vendor/twemoji.min.js"></script>
-<script>twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });</script>
+```bash
+npm install @phosphor-icons/web
+# copy into the repo:
+cp node_modules/@phosphor-icons/web/src/regular/style.css vendor/phosphor-regular.css
+cp -r node_modules/@phosphor-icons/web/src/regular/fonts/ vendor/fonts/
 ```
 
-**Icons used:**
+Update the CSS path in `phosphor-regular.css` to point to `../vendor/fonts/` (relative to `styles.css` location).
 
-| Location | Emoji | Character |
-|---|---|---|
-| Pricing — barcode scanning | 🏷️ | U+1F3F7 |
-| Pricing — label OCR | 📷 | U+1F4F7 |
-| Pricing — daily log | 📋 | U+1F4CB |
-| Pricing — history & trends | 📈 | U+1F4C8 |
-| Pricing — manual entry | ✏️ | U+270F |
-| Pricing — Apple Health | ❤️ | U+2764 |
-| Pricing — tip jar | 🫙 | U+1FAD9 |
-| Privacy band — no account | 🚫 | U+1F6AB |
-| Privacy band — no trackers | 🔒 | U+1F512 |
-| Privacy band — on-device | 📱 | U+1F4F1 |
-| Privacy band — log stays local | 🏠 | U+1F3E0 |
-| Privacy band — only barcode leaves | 🔍 | U+1F50D |
-| Privacy band — Health write-only | 💚 | U+1F49A |
-
-The privacy band `.promise .tick` (currently a `✓` text character) is replaced by the emoji icon above for each row. The `display: flex; gap: 16px` layout of `.promise` remains.
-
-Each `.promise` in `index.html` changes from:
 ```html
-<span class="tick">✓</span>
-```
-to:
-```html
-<span class="promise-icon">🚫</span>  <!-- use the relevant emoji per row -->
+<!-- In <head> of index.html -->
+<link rel="stylesheet" href="vendor/phosphor-regular.css">
 ```
 
-Add `.promise-icon` sizing to `styles.css`:
+No JavaScript required — Phosphor is a pure CSS icon font.
+
+### Icon class reference
+
+| Location | Class |
+|---|---|
+| Pricing — barcode scanning | `ph ph-barcode` |
+| Pricing — label OCR | `ph ph-camera` |
+| Pricing — daily log | `ph ph-clipboard-text` |
+| Pricing — history & trends | `ph ph-chart-line-up` |
+| Pricing — manual entry | `ph ph-pencil-simple` |
+| Pricing — Apple Health | `ph ph-heart` |
+| Pricing — tip jar | `ph ph-jar` |
+| Privacy band — no account | `ph ph-user-minus` |
+| Privacy band — no trackers | `ph ph-shield-slash` |
+| Privacy band — on-device | `ph ph-device-mobile` |
+| Privacy band — log stays local | `ph ph-house-simple` |
+| Privacy band — only barcode leaves | `ph ph-scan` |
+| Privacy band — Health write-only | `ph ph-heart` |
+
+### Usage pattern
+
+```html
+<!-- Feature grid item -->
+<div class="feature-item">
+  <i class="ph ph-barcode feature-icon" aria-hidden="true"></i>
+  <div class="feature-name">Barcode scanning</div>
+  <div class="feature-desc">Open Food Facts + USDA fallback for US products</div>
+</div>
+
+<!-- Tip jar row -->
+<div class="tip-row">
+  <div class="tip-row-left">
+    <i class="ph ph-jar tip-icon" aria-hidden="true"></i>
+    <span class="tip-label">Optional</span>
+  </div>
+  <span class="tip-text">…</span>
+</div>
+
+<!-- Privacy band promise (replaces .tick span) -->
+<i class="ph ph-user-minus promise-icon" aria-hidden="true"></i>
+```
+
+### CSS sizing
+
+Replace the Twemoji `img` overrides in §6 with:
+
 ```css
-.promise-icon { display: block; flex-shrink: 0; width: 22px; height: 22px; }
-.promise-icon img { width: 22px !important; height: 22px !important; }
+/* Phosphor icon sizing */
+.feature-icon { font-size: 22px; color: var(--green); display: block; margin-bottom: 10px; line-height: 1; }
+.tip-icon     { font-size: 18px; color: var(--turmeric); flex-shrink: 0; }
+.promise-icon { font-size: 18px; color: rgba(221,213,218,0.75); flex-shrink: 0; line-height: 1.3; }
 ```
 
 Remove the existing `.promise .tick { color: #79C9A4; font-size: 20px; flex: none; line-height: 1.4; }` rule.
-
-**Privacy policy page:** No Twemoji needed — no emoji characters there.
-
-### CSS for Twemoji images
-
-Add globally to `styles.css`:
-
-```css
-/* Twemoji: prevent layout shift when SVGs load */
-img.emoji {
-  display: inline-block;
-  height: 1em;
-  width: 1em;
-  margin: 0 0.05em 0 0.1em;
-  vertical-align: -0.1em;
-}
-```
-
-For explicit-size contexts (feature grid icons, promise icons), override via the parent class (`.feature-icon img`, `.promise-icon img`) as shown in §6.
 
 ---
 
@@ -467,11 +471,10 @@ Add the following to `STYLE_GUIDE.md` under a new **§11 Platform Rules** sectio
 ### No raw OS emoji
 Never use raw Unicode emoji characters in production HTML/CSS/JS. Emoji rendering is
 controlled by the OS font stack — the same character looks meaningfully different on
-macOS, Windows, Android, and older iOS. Use one of:
+macOS/iOS, Android, and Windows. Use purpose-built icon sets instead:
 
-- **Twemoji** (web): `twemoji.parse(document.body, { folder: 'svg', ext: '.svg' })`
-  — replaces emoji chars with consistent Twitter SVG artwork. Self-host the JS; the
-  SVG CDN (twemoji.maxcdn.com) is acceptable for the marketing site.
+- **Phosphor Icons** (web): MIT-licensed icon font, consistent rendering everywhere.
+  Self-host via `@phosphor-icons/web`. Use `<i class="ph ph-[name]">` — no JS needed.
 - **SF Symbols** (iOS app): system icons only; no emoji in SwiftUI views.
 
 This applies to all surfaces: marketing site, privacy policy, any future web views.
@@ -484,7 +487,7 @@ This applies to all surfaces: marketing site, privacy policy, any future web vie
 Only the token swap applies — no layout changes. Ensure:
 - Google Fonts `<link>` is updated to Eczar (same import as `index.html`).
 - CSS variables pick up automatically since `privacy.html` links `styles.css`.
-- No emoji on this page, so no Twemoji script needed.
+- No icons on this page, so the Phosphor stylesheet is not needed here.
 
 ---
 
@@ -500,10 +503,11 @@ Only the token swap applies — no layout changes. Ensure:
 
 | File | Change |
 |---|---|
-| `styles.css` | Token swap, hero watermark styles, steps editorial styles, support/pricing rewrite, Twemoji `.emoji` rule |
-| `index.html` | Google Fonts import, hero HTML structure, step `.num` → `.step-num`, support section HTML rewrite, Twemoji script before `</body>` |
+| `styles.css` | Token swap, hero watermark styles, steps editorial styles, support/pricing rewrite, Phosphor icon sizing rules |
+| `index.html` | Google Fonts import, Phosphor stylesheet link, hero HTML structure, step `.num` → `.step-num`, support section HTML rewrite with `<i class="ph …">` icons |
 | `privacy.html` | Google Fonts import only |
-| `vendor/twemoji.min.js` | New file — self-hosted Twemoji 14.0.2 |
+| `vendor/phosphor-regular.css` | New file — self-hosted Phosphor Icons regular weight stylesheet |
+| `vendor/fonts/` | New directory — Phosphor web font files referenced by the stylesheet |
 | `STYLE_GUIDE.md` (clearlabel repo) | Add §11 Platform Rules / no-emoji rule |
 
-**`app.js` is not changed** — scroll-reveal logic is unaffected. Twemoji init is a separate inline `<script>` added to `index.html` before `</body>`.
+**`app.js` is not changed** — scroll-reveal logic is unaffected. Phosphor is a pure CSS icon font; no JS needed.
