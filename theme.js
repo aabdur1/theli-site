@@ -16,8 +16,15 @@
   document.addEventListener('DOMContentLoaded', function () {
     var btn = document.querySelector('.theme-toggle');
     if (!btn) return;
+    var motionOK = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+    var animTimer;
     btn.addEventListener('click', function () {
       var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      if (motionOK) {
+        root.classList.add('theme-anim');
+        clearTimeout(animTimer);
+        animTimer = setTimeout(function () { root.classList.remove('theme-anim'); }, 500);
+      }
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('theli-theme', next); } catch (e) {}
     });

@@ -412,3 +412,23 @@ section { padding: clamp(56px, 9vw, 104px) 0; }
   .reveal { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ---- Smooth theme cross-fade (class added by theme.js only during a toggle) ---- */
+:root.theme-anim, :root.theme-anim * {
+  transition: background-color 0.45s var(--ease), color 0.45s var(--ease),
+              border-color 0.45s var(--ease), fill 0.45s var(--ease) !important;
+}
+
+/* ---- Hover micro-interactions (desktop pointers only, motion-safe) ---- */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .feature-icon { transition: transform 0.3s var(--ease), color 0.3s var(--ease); }
+  .feature-item:hover .feature-icon { transform: translateY(-3px); color: var(--green-lite); }
+  .feature-name { transition: color 0.3s var(--ease); }
+  .feature-item:hover .feature-name { color: var(--green); }
+
+  .step-num { transition: transform 0.4s var(--ease); transform-origin: left center; }
+  .step:hover .step-num { transform: scale(1.04); }
+
+  .promise-icon { transition: transform 0.3s var(--ease); }
+  .promise:hover .promise-icon { transform: translateY(-2px); }
+}
