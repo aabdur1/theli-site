@@ -400,6 +400,17 @@ section { padding: clamp(56px, 9vw, 104px) 0; }
   .feature-item:nth-child(3n+2) { border-right: none; }
 }
 
+/* ---- FAQ ---- */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 56px;
+}
+@media (max-width: 720px) { .faq-grid { grid-template-columns: 1fr; } }
+.qa { padding: 26px 0; border-top: 1px solid var(--line-soft); }
+.qa h3 { font-size: clamp(18px, 2.1vw, 21px); margin-bottom: 9px; }
+.qa p  { color: var(--ink-soft); font-size: 15.5px; line-height: 1.6; }
+
 /* ---- Footer ---- */
 .site-footer { border-top: 1px solid var(--line); padding: 56px 0 70px; }
 .foot-grid { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }

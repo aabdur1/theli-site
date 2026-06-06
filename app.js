@@ -19,7 +19,7 @@
   document.querySelectorAll('.hero .reveal').forEach(function (el, i) { el.dataset.d = i * 90; });
 
   // Grid groups cascade their children as the group scrolls into view.
-  ['.steps', '.features-grid'].forEach(function (sel) {
+  ['.steps', '.features-grid', '.faq-grid'].forEach(function (sel) {
     var group = document.querySelector(sel);
     if (!group) return;
     Array.prototype.forEach.call(group.querySelectorAll('.reveal'), function (el, i) {
