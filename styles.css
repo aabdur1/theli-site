@@ -211,15 +211,49 @@ a { color: inherit; text-decoration: none; }
 .btn.ghost:hover { border-color: var(--ink); }
 .cta-note { font-size: 14px; color: var(--ink-faint); }
 
-/* ---- Hero split headline (desktop only; mobile keeps inline natural flow) ---- */
+/* ---- Hero: two-column on desktop — text left, app screenshot right ---- */
 @media (min-width: 900px) {
-  .hero-content { max-width: none; }
-  .hero .eyebrow, .hero .lede, .hero .pron, .hero .cta-row, .hero .cta-note { max-width: 600px; }
-  .hero h1 { max-width: none; }
-  .hero h1 .hl-a { display: block; text-align: left; }
-  .hero h1 .hl-b { display: block; text-align: right; }
-  .hero h1 em { -webkit-text-stroke: 4.5px var(--ink); }
+  .hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(290px, 28vw, 322px);
+    gap: 64px;
+    align-items: center;
+    max-width: none;   /* override the base 680px cap so the grid uses the full wrap */
+  }
+  .hero-text { max-width: 660px; }
+  /* font scales with viewport so each phrase fits on one line at any desktop width */
+  .hero h1 { font-size: clamp(34px, 3.9vw, 52px); max-width: none; line-height: 1.1; }
+  .hero h1 .hl-a, .hero h1 .hl-b { display: block; white-space: nowrap; text-align: left; }
+  .hero h1 em { -webkit-text-stroke: 3.5px var(--ink); }  /* lighter stroke at the smaller size */
+  .hero .lede { max-width: 46ch; }
+  .hero-device { display: block; justify-self: end; min-width: 0; }
+  .hero-device .device { width: 100%; }  /* fills its column — bigger */
 }
+
+/* ---- App screenshots (minimal device frame) ---- */
+.device {
+  position: relative;
+  background: #0B130D;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 32px;
+  padding: 6px;
+  box-shadow: 0 28px 56px -26px rgba(26,24,32,0.5), 0 8px 22px -14px rgba(26,24,32,0.32);
+}
+:root[data-theme="dark"] .device {
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 28px 56px -24px rgba(0,0,0,0.6), 0 0 0 1px rgba(98,168,135,0.07);
+}
+.device .screen {
+  display: block; border-radius: 26px; overflow: hidden;
+  aspect-ratio: 680 / 1410; background: #0F1C14;
+}
+.device .screen img { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+
+/* Hero device — desktop only; on mobile the steps carry the screens */
+@media (max-width: 899px) { .hero-device { display: none; } }
+.step-shot { margin-bottom: 22px; }
+.step-shot .device { width: 100%; max-width: 230px; }
+.steps .step { display: flex; flex-direction: column; align-items: flex-start; }
 
 /* ---- Section scaffold ---- */
 section { padding: clamp(56px, 9vw, 104px) 0; }

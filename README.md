@@ -14,6 +14,7 @@ theme.js                dark/light theme: pre-paint set + toggle + localStorage
 favicon.svg             kolam app-mark (+ apple-touch-icon.png)
 og-image.png            1200×630 social card (referenced by OG/Twitter meta)
 apple-touch-icon.png    180×180 home-screen icon
+screens/                real app screenshots (hero device + illustrated steps)
 vendor/                 self-hosted Phosphor Icons (CSS + web fonts)
 netlify.toml            publish dir + security headers + caching + www→apex redirect
 ```
