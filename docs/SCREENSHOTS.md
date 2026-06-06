@@ -1,8 +1,8 @@
 # Theli — screenshot shot list & capture guide
 
 Operational guide for producing the real app screenshots that feed **both** the
-marketing site (`screens/`) and the App Store listing. The current files in
-`screens/` are throwaway placeholders — replace them following this.
+marketing site (`assets/img/screens/`) and the App Store listing. The current files in
+`assets/img/screens/` are throwaway placeholders — replace them following this.
 
 Theli ships **forced dark** (`.preferredColorScheme(.dark)`), so **every shot is
 the Forest dark theme**. There is no light-mode screenshot to take.
@@ -81,14 +81,14 @@ site uses its own step copy.
 10; 5–6 strong ones beats 10 weak ones.
 
 ### Where each lands on the website
-`screens/` currently holds 4 files the site references directly — replace them:
+`assets/img/screens/` currently holds 4 files the site references directly — replace them:
 
 | Site slot | File | Use shot |
 |-----------|------|----------|
-| Hero device (desktop) | `screens/fooditem.png` | **#4 Confirm** (filled name) or **#1 Home** |
-| Step 01 | `screens/barcode.jpg` | **#2 Barcode** |
-| Step 02 | `screens/label.jpg` | **#3 Label** |
-| Step 03 | `screens/confirm.png` | **#4 Confirm** |
+| Hero device (desktop) | `assets/img/screens/fooditem.png` | **#4 Confirm** (filled name) or **#1 Home** |
+| Step 01 | `assets/img/screens/barcode.jpg` | **#2 Barcode** |
+| Step 02 | `assets/img/screens/label.jpg` | **#3 Label** |
+| Step 03 | `assets/img/screens/confirm.png` | **#4 Confirm** |
 
 > **Site crop:** the `.device .screen` frame is `aspect-ratio: 680 / 1410` with
 > `object-fit: cover; object-position: center bottom`. A full 1320×2868 shot is

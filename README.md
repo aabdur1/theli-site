@@ -9,13 +9,14 @@ Serif Tamil). Light (Warm Stone Pink) and dark (Forest) themes with a toggle.
 index.html              landing page
 privacy.html            privacy policy (served at /privacy and /privacy.html)
 styles.css              shared styles + light/dark themes (:root[data-theme])
-app.js                  staggered scroll reveals + hero-watermark parallax
+app.js                  scroll reveals + hero-watermark parallax + name audio
 theme.js                dark/light theme: pre-paint set + toggle + localStorage
-favicon.svg             kolam app-mark (+ apple-touch-icon.png)
-og-image.png            1200×630 social card (referenced by OG/Twitter meta)
-apple-touch-icon.png    180×180 home-screen icon
-screens/                real app screenshots (hero device + illustrated steps)
+favicon.svg             kolam app-mark (root, by convention)
+apple-touch-icon.png    180×180 home-screen icon (root, by convention)
+assets/img/             og-image.png (social card) + screens/ (app screenshots)
+assets/audio/           theli-pronunciation.mp3 (name pronunciation clip)
 vendor/                 self-hosted Phosphor Icons (CSS + web fonts)
+docs/                   design specs, screenshot guide, app handoff
 netlify.toml            publish dir + security headers + caching + www→apex redirect
 ```
 
@@ -81,11 +82,11 @@ Brand system (shared with the app, source of truth in the app repo's `STYLE_GUID
   `paint-order`) that blurs into focus on load; subtle kolam (sikku) section dividers
   (hairline + three turmeric pulli); staggered reveals, gentle hovers, theme cross-fade,
   watermark parallax.
-- Per-change design rationale: `docs/superpowers/specs/`. App handoff: `DESIGN_HANDOFF.md`.
+- Per-change design rationale: `docs/superpowers/specs/`. App handoff: `docs/DESIGN_HANDOFF.md`.
 
 > The marketing-specific flourishes (outlined "clear.", blur-to-clarity, split headline,
 > kolam dividers, web animations) are **site-only** — the iOS app uses the same *tokens +
-> type + dark theme* but its own native components and SwiftUI motion. See `DESIGN_HANDOFF.md`.
+> type + dark theme* but its own native components and SwiftUI motion. See `docs/DESIGN_HANDOFF.md`.
 
 ## Caching
 

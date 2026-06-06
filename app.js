@@ -45,4 +45,24 @@
       update();
     }
   }
+
+  // ---- Name pronunciation ----
+  // Clip is fetched on first click only (no preload) — zero page-weight cost.
+  var pron = document.querySelector('.pron-play');
+  if (pron) {
+    var audio = null;
+    pron.addEventListener('click', function () {
+      if (!audio) {
+        audio = new Audio('assets/audio/theli-pronunciation.mp3');
+        audio.addEventListener('ended', function () { pron.classList.remove('is-playing'); });
+      }
+      audio.currentTime = 0;
+      pron.classList.remove('is-playing');
+      // reflow so the pulse animation restarts on rapid repeat clicks
+      void pron.offsetWidth;
+      pron.classList.add('is-playing');
+      var p = audio.play();
+      if (p && p.catch) { p.catch(function () { pron.classList.remove('is-playing'); }); }
+    });
+  }
 })();
