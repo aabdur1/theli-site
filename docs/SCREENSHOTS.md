@@ -4,8 +4,11 @@ Operational guide for producing the real app screenshots that feed **both** the
 marketing site (`assets/img/screens/`) and the App Store listing. The current files in
 `assets/img/screens/` are throwaway placeholders — replace them following this.
 
-Theli ships **forced dark** (`.preferredColorScheme(.dark)`), so **every shot is
-the Forest dark theme**. There is no light-mode screenshot to take.
+Theli supports **System / Light / Dark** (default System) via Settings →
+Appearance. **Every shot in this set was captured in the Forest dark theme on
+purpose** — to match the marketing site's Forest palette and keep the set
+cohesive. (Older drafts said the app was forced dark via
+`.preferredColorScheme(.dark)`; that's stale — appearance is now user-selectable.)
 
 ---
 

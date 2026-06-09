@@ -332,6 +332,20 @@ section { padding: clamp(56px, 9vw, 104px) 0; }
   .step:last-child  { border-bottom: none; }
 }
 
+/* ---- Longer-view showcase (weight trend + goal calculator) ---- */
+.showcase-grid { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+.showcase h2 { font-size: clamp(28px, 5vw, 44px); margin-top: 14px; max-width: 16ch; }
+.showcase p  { color: var(--ink-soft); margin-top: 16px; font-size: 16px; line-height: 1.65; max-width: 48ch; }
+.showcase-points { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; }
+.showcase-points li { position: relative; padding-left: 30px; font-size: 15px; color: var(--ink-soft); line-height: 1.55; }
+.showcase-points li i { position: absolute; left: 0; top: 2px; font-size: 18px; color: var(--green); line-height: 1; }
+.showcase-points b { color: var(--ink); font-weight: 600; }
+.showcase-shot .device { width: 100%; max-width: 300px; }
+@media (min-width: 900px) {
+  .showcase-grid { grid-template-columns: 1fr clamp(240px, 26vw, 300px); gap: clamp(32px, 5vw, 72px); }
+  .showcase-shot { justify-self: end; }
+}
+
 /* ---- Privacy feature band ---- */
 .band {
   background: var(--green-deep);
